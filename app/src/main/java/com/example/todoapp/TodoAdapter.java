@@ -2,6 +2,7 @@ package com.example.todoapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Paint;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,9 +22,13 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder>{
 
     Context context;
     private List<Todo> data;
+    RoomDB database;
+
+
     public TodoAdapter(List<Todo> data, Context context) {
         this.data = data;
         this.context = context;
+        this.database = RoomDB.getInstance(context);
     }
 
     @NonNull
@@ -61,12 +66,28 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder>{
 
         //Action Listener on checkbox item
         holder.completed.setOnClickListener(new View.OnClickListener(){
+            private Todo currentTodo;
+            private ViewHolder holder;
+            private Context context;
 
             @Override
             public void onClick(View view) {
-                item.
+                currentTodo.setCompleted(!currentTodo.isCompleted());
+                database.todoDao().update(currentTodo);
+
+                if(currentTodo.isCompleted()){
+                    holder.todoTitle.setPaintFlags(holder.todoTitle.getPaintFlags() |     Paint.STRIKE_THRU_TEXT_FLAG);
+                    //holder.todoTitle.setTextColor(context.getResources().getColor(R.color.black));
+                }
             }
-        });
+
+            private View.OnClickListener init(Todo todo, ViewHolder holder, Context context){
+                this.currentTodo = todo;
+                this.holder = holder;
+                this.context= context;
+                return this;
+            }
+        }.init(item, holder, context));
     }
 
     @Override

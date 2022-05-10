@@ -55,7 +55,7 @@ public class AddTodoActivity extends AppCompatActivity {
                 String title = todoTitle.getText().toString();
                 String description = todoDescription.getText().toString();
 
-                if(todo.getTitle().isEmpty()){
+                if(todo.getTitle()==null){
                     // add todo to db
                     database.todoDao().insertTodo(new Todo(title, description, new Date().toString(), false));
                     Toast.makeText(AddTodoActivity.this, "Todo Created", Toast.LENGTH_SHORT).show();
