@@ -13,6 +13,9 @@
     <color name="text_color_faded">#68676b</color>
 
     <color name="material_blue">#2f69db</color>
+    <color name="material_red">#DB2F2F</color>
+
+
     <color name="layout_background">#171719 </color>
 
     <color name="addItem_background">#323038 </color>
