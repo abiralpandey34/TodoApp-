@@ -79,6 +79,9 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder>{
                     holder.todoTitle.setPaintFlags(holder.todoTitle.getPaintFlags() |     Paint.STRIKE_THRU_TEXT_FLAG);
                     //holder.todoTitle.setTextColor(context.getResources().getColor(R.color.black));
                 }
+                else{
+                    holder.todoTitle.setPaintFlags(holder.todoTitle.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG));
+                }
             }
 
             private View.OnClickListener init(Todo todo, ViewHolder holder, Context context){

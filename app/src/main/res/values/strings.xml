@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Todo</string>
+    <string name="empty_field_alert">The Title Field cannot be left empty</string>
+    <string name="delete_confirmation">Are you sure you want to delete?</string>
+
+    <string name="app_slogan">Don\'t Miss Anything.</string>
+
+
+
 </resources>

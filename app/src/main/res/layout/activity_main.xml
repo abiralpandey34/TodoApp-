@@ -20,6 +20,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/no_todo_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/not_allowed"
+        app:layout_constraintBottom_toBottomOf="@+id/list"
+        app:layout_constraintTop_toTopOf="@+id/list"
+        tools:layout_editor_absoluteX="20dp" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_item_button"
         android:layout_width="wrap_content"
