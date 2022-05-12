@@ -14,30 +14,7 @@ import java.util.List;
 
 import android.app.Activity;
 import android.widget.ImageView;
-
-
-//class Splash extends Activity {
-//
-//    /** Called when the activity is first created. */
-//    @Override
-//    public void onCreate(Bundle icicle) {
-//        super.onCreate(icicle);
-//        setContentView(R.layout.loading_screen);
-//
-//        /* New Handler to start the Menu-Activity
-//         * and close this Splash-Screen after some seconds.*/
-//
-//        new Handler().postDelayed(new Runnable(){
-//            @Override
-//            public void run() {
-//                /* Create an Intent that will start the Menu-Activity. */
-//                Intent mainIntent = new Intent(Splash.this, MainActivity.class);
-//                Splash.this.startActivity(mainIntent);
-//                Splash.this.finish();
-//            }
-//        }, 4000);
-//    }
-//}
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -49,11 +26,16 @@ public class MainActivity extends AppCompatActivity {
 
     FloatingActionButton addItemButton;
     ImageView noTodoItem;
+    TextView noTodoText;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        noTodoItem = findViewById(R.id.no_todo_image);
+        noTodoText = findViewById(R.id.no_todo_text);
 
         recyclerView = findViewById(R.id.list);
         addItemButton = findViewById(R.id.add_item_button);
@@ -64,10 +46,7 @@ public class MainActivity extends AppCompatActivity {
         database = RoomDB.getInstance(this);
         this.todoList.addAll(this.database.todoDao().getAllTodos());
 
-        if(!todoList.isEmpty()){
-            noTodoItem = findViewById(R.id.no_todo_image);
-            noTodoItem.setVisibility(View.GONE);
-        }
+        determineVisibility();
 
         addItemButton.setOnClickListener(new View.OnClickListener(){
 
@@ -87,12 +66,21 @@ public class MainActivity extends AppCompatActivity {
         this.todoList.clear();
         this.todoList.addAll(this.database.todoDao().getAllTodos());
 
-        //todo : When note is deleted and ultimately no note is present, image doesn't show. Works at startup
-        if(!todoList.isEmpty()){
-            noTodoItem = findViewById(R.id.no_todo_image);
-            noTodoItem.setVisibility(View.GONE);
-        }
+        determineVisibility();
 
         adapter.notifyDataSetChanged();
+    }
+
+    public void determineVisibility(){
+
+        if(!todoList.isEmpty()){
+
+            noTodoItem.setVisibility(View.GONE);
+            noTodoText.setVisibility(View.GONE);
+        }
+        else{
+            noTodoItem.setVisibility(View.VISIBLE);
+            noTodoText.setVisibility(View.VISIBLE);
+        }
     }
 }

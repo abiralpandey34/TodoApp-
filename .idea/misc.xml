@@ -8,11 +8,13 @@
         <entry key="..\:/Code/Android/Todo_a/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.2555" />
         <entry key="..\:/Code/Android/Todo_a/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.2555" />
         <entry key="..\:/Code/Android/Todo_a/app/src/main/res/layout/activity_add_todo.xml" value="0.264" />
-        <entry key="..\:/Code/Android/Todo_a/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Code/Android/Todo_a/app/src/main/res/layout/activity_launcher.xml" value="0.25" />
+        <entry key="..\:/Code/Android/Todo_a/app/src/main/res/layout/activity_main.xml" value="0.176" />
         <entry key="..\:/Code/Android/Todo_a/app/src/main/res/layout/alert_message_layout.xml" value="0.23177083333333334" />
         <entry key="..\:/Code/Android/Todo_a/app/src/main/res/layout/delete_confirmation_dialogbox.xml" value="0.25" />
         <entry key="..\:/Code/Android/Todo_a/app/src/main/res/layout/drop_shadow.xml" value="0.25" />
-        <entry key="..\:/Code/Android/Todo_a/app/src/main/res/layout/list_item.xml" value="0.1" />
+        <entry key="..\:/Code/Android/Todo_a/app/src/main/res/layout/launcher_activity.xml" value="0.25" />
+        <entry key="..\:/Code/Android/Todo_a/app/src/main/res/layout/list_item.xml" value="0.4" />
         <entry key="..\:/Code/Android/Todo_a/app/src/main/res/layout/loading_screen.xml" value="0.264" />
         <entry key="..\:/Code/Android/Todo_a/app/src/main/res/mipmap-anydpi-v26/Todo_logo.xml" value="0.205" />
         <entry key="..\:/Code/Android/Todo_a/app/src/main/res/mipmap-anydpi-v26/Todo_logo_round.xml" value="0.238" />
