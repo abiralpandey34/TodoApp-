@@ -14,11 +14,26 @@
         android:id="@+id/todo_title_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:paddingLeft="13dp"
         android:text="Gello this is a test"
         android:textColor="@color/text_color"
         android:textSize="18dp"
-        android:paddingLeft="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/todo_date_text_view" />
+
+    <TextView
+        android:id="@+id/todo_date_text_view"
+        android:layout_width="98dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="2020-10-10"
+        android:textColor="@color/text_color"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.012"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

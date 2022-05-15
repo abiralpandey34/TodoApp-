@@ -71,13 +71,38 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
+    <TextView
+        android:id="@+id/date_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="5dp"
+        android:text="Date"
+        android:textAllCaps="true"
+        android:textColor="@color/text_color_faded"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/todo_description"
+        tools:layout_editor_absoluteX="24dp" />
+
+    <Button
+        android:id="@+id/date_picker_button"
+        android:layout_width="374dp"
+        android:text="Pick a date"
+        android:layout_height="53dp"
+        android:calendarTextColor="@color/text_color"
+        android:datePickerMode="calendar"
+        app:layout_constraintTop_toBottomOf="@+id/date_text"
+        tools:layout_editor_absoluteX="22dp" />
+
     <Button
         android:id="@+id/add_item_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"
         android:backgroundTint="@color/material_blue"
         android:text="Save"
         android:textColor="@color/text_color"
@@ -85,25 +110,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/todo_description" />
+        app:layout_constraintTop_toBottomOf="@+id/date_picker_button" />
 
     <Button
         android:id="@+id/delete_item_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
         android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
         android:backgroundTint="@color/material_red"
         android:text="Delete"
         android:textColor="@color/text_color"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_item_button"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.187" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

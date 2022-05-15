@@ -45,6 +45,7 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder>{
 
         holder.todoTitle.setText(item.getTitle());
         holder.completed.setChecked(item.isCompleted());
+        holder.createdDate.setText(item.getCreatedDate());
 
         // set on click listener
         holder.adapterContainer.setOnClickListener(new View.OnClickListener(){
@@ -75,13 +76,10 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder>{
                 currentTodo.setCompleted(!currentTodo.isCompleted());
                 database.todoDao().update(currentTodo);
 
+                //This if-else block is responsible for add & removing strike-through on text when checkbox is enabled or disabled.
                 if(currentTodo.isCompleted()){
                     holder.todoTitle.setPaintFlags(holder.todoTitle.getPaintFlags() |     Paint.STRIKE_THRU_TEXT_FLAG);
-                    //holder.todoTitle.setTextColor(context.getResources().getColor(R.color.black));
-                }
-                else{
-                    holder.todoTitle.setPaintFlags(holder.todoTitle.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG));
-                }
+                } else{ holder.todoTitle.setPaintFlags(holder.todoTitle.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG)); }
             }
 
             private View.OnClickListener init(Todo todo, ViewHolder holder, Context context){
@@ -102,6 +100,7 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder>{
 
         ConstraintLayout adapterContainer;
         TextView todoTitle;
+        TextView createdDate;
         CheckBox completed;
 
         public ViewHolder(@NonNull View itemView) {
@@ -109,6 +108,7 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder>{
 
             this.adapterContainer = itemView.findViewById(R.id.adapter_container);
             this.todoTitle = itemView.findViewById(R.id.todo_title_text_view);
+            this.createdDate = itemView.findViewById(R.id.todo_date_text_view);
             this.completed = itemView.findViewById(R.id.todo_completed_check_box);
 
         }

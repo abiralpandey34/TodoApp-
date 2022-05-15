@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -80,8 +81,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
     }
 
     ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP | ItemTouchHelper.DOWN | ItemTouchHelper.START | ItemTouchHelper.END, 0) {
@@ -106,7 +105,8 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    //This method will show confirmation dialog box whenever user tries to exit an application.
+    //This method gets executed when user presses back button from main-activity screen.
+    // It asks for confirmation in a box whenever user tries to exit an application.
     @Override
     public void onBackPressed() {
 
@@ -162,6 +162,9 @@ public class MainActivity extends AppCompatActivity {
         adapter.notifyDataSetChanged();
     }
 
+/*   This method determines visibility of 'no-image-found' image.
+*    It shows 'not-found' image when no to-do items are present, else, doesn't show any image.
+*/
     public void determineVisibility(){
 
         if(!todoList.isEmpty()){
