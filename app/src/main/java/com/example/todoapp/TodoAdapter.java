@@ -47,7 +47,7 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder>{
         holder.completed.setChecked(item.isCompleted());
         holder.createdDate.setText(item.getCreatedDate());
 
-        // set on click listener
+        // Setting on click Action listener on To-do List items.
         holder.adapterContainer.setOnClickListener(new View.OnClickListener(){
             private Todo currentTodo;
 
@@ -65,7 +65,7 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder>{
 
         }.init(item));
 
-        //Action Listener on checkbox item
+        //Setting on click Action Listener on checkbox item
         holder.completed.setOnClickListener(new View.OnClickListener(){
             private Todo currentTodo;
             private ViewHolder holder;
