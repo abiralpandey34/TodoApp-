@@ -3,6 +3,7 @@ package com.example.todoapp;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
@@ -22,6 +23,7 @@ import android.view.Menu;
 import android.view.View;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import android.app.Activity;
@@ -60,13 +62,17 @@ public class MainActivity extends AppCompatActivity {
         adapter = new TodoAdapter(todoList, this);
         recyclerView.setAdapter(adapter);
 
+
         database = RoomDB.getInstance(this);
         this.todoList.addAll(this.database.todoDao().getAllTodos());
 
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
+        itemTouchHelper.attachToRecyclerView(recyclerView);
+
+        //THis method determine the visibility of "no-task-found" image based on TodoList List.
         determineVisibility();
 
         addItemButton.setOnClickListener(new View.OnClickListener(){
-
             @Override
             public void onClick(View view) {
                 Intent addIntent = new Intent(MainActivity.this, AddTodoActivity.class);
@@ -75,8 +81,32 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+
     }
 
+    ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP | ItemTouchHelper.DOWN | ItemTouchHelper.START | ItemTouchHelper.END, 0) {
+
+        //This onMove method helps to drag to-do list items, and change their display order.
+        @Override
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+
+            Log.d("hello", "onMove: ");
+            int startPosition = viewHolder.getAdapterPosition();
+            int endPosition = target.getAdapterPosition();
+
+            Collections.swap(todoList, startPosition, endPosition);
+            recyclerView.getAdapter().notifyItemMoved(startPosition, endPosition);
+
+            return true;
+        }
+
+        @Override
+        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
+        }
+    };
+
+    //This method will show confirmation dialog box whenever user tries to exit an application.
     @Override
     public void onBackPressed() {
 
@@ -145,37 +175,5 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void confirmDialog(Context context){
 
-        final AlertDialog alert = new AlertDialog.Builder(
-                new ContextThemeWrapper(context,android.R.style.Theme_Dialog))
-                .create();
-        alert.setTitle("Alert");
-        alert.setMessage("Do you want to exit ?");
-        alert.setIcon(R.drawable.not_allowed);
-        alert.setCancelable(false);
-        alert.setCanceledOnTouchOutside(false);
-
-        alert.setButton(DialogInterface.BUTTON_POSITIVE, "Yes",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-
-                        alert.dismiss();
-
-                        finish();
-
-                    }
-                });
-
-        alert.setButton(DialogInterface.BUTTON_NEGATIVE, "No",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-
-                        alert.dismiss();
-
-                    }
-                });
-
-        alert.show();
-    }
 }
