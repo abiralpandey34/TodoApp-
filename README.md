@@ -1,5 +1,9 @@
 
-## Todo Application
+## Final Component DMA : Todo Application <br/>
+
+### Database Schema
+The image below shows the ERD of the database that was used in the application. It has only one table which stores all todo related items. <br/>
+<img src="gif/erd.png" width="250">
 
 ### Opening an App
 <p>While launching the app, loading screen animation is displayed. Currently, no items are present, so we are presented with 'Nothing To-do' Image</p>
