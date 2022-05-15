@@ -10,7 +10,7 @@
 ### Updating an Item
 <img src="gif/update_gif.gif" width="250"/>
 
-### Deleting an App
+### Deleting an Item
 <img src="gif/delete_gif.gif" width="250"/>
 
 ### Clicking on Checkbox

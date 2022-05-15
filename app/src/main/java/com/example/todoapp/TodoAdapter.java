@@ -3,12 +3,14 @@ package com.example.todoapp;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
+import android.media.Image;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,6 +47,7 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder>{
         holder.todoTitle.setText(item.getTitle());
         holder.completed.setChecked(item.isCompleted());
         holder.createdDate.setText(item.getCreatedDate());
+        holder.favourite.setChecked(item.isFavourite());
 
         // Setting on click Action listener on To-do List items.
         holder.adapterContainer.setOnClickListener(new View.OnClickListener(){
@@ -69,6 +72,34 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder>{
             holder.todoTitle.setPaintFlags(holder.todoTitle.getPaintFlags() |     Paint.STRIKE_THRU_TEXT_FLAG);
         }
 
+        // Setting on-click Action Listener on Favourite Item
+        holder.favourite.setOnClickListener(new View.OnClickListener(){
+
+            private Todo currentTodo;
+            private ViewHolder holder;
+            private Context context;
+
+            @Override
+            public void onClick(View view) {
+
+                currentTodo.setFavourite(!currentTodo.isFavourite());
+
+                if(currentTodo.isFavourite()){
+                    Toast.makeText(context, "Added to Favourites", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(context, "Removed from Favourites", Toast.LENGTH_SHORT).show();
+                }
+
+                database.todoDao().update(currentTodo);
+            }
+
+            private View.OnClickListener init(Todo todo, ViewHolder holder, Context context){
+                this.currentTodo = todo;
+                this.holder = holder;
+                this.context= context;
+                return this;
+            }
+        }.init(item, holder, context));
 
         //Setting on click Action Listener on checkbox item
         holder.completed.setOnClickListener(new View.OnClickListener(){
@@ -108,6 +139,8 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder>{
         TextView todoTitle;
         TextView createdDate;
         CheckBox completed;
+        CheckBox favourite;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -116,9 +149,12 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder>{
             this.todoTitle = itemView.findViewById(R.id.todo_title_text_view);
             this.createdDate = itemView.findViewById(R.id.todo_date_text_view);
             this.completed = itemView.findViewById(R.id.todo_completed_check_box);
+            this.favourite = itemView.findViewById(R.id.favourite_button);
 
         }
     }
+
+    
 
 
 }

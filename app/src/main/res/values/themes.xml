@@ -27,4 +27,9 @@
         <item name="android:windowExitAnimation">@android:anim/fade_out</item>
     </style>
 
+    <style name="checkBoxStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="colorAccent">@android:color/holo_red_dark</item>
+        <item name="android:textColorSecondary">@android:color/background_dark</item>
+    </style>
+
 </resources>

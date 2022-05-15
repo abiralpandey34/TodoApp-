@@ -18,13 +18,15 @@ public class Todo implements Serializable {
     @ColumnInfo(name = "created_date")
     private String createdDate;
     private boolean completed;
+    private boolean favourite;
 
     public Todo(){}
 
-    public Todo(String title, String description, String createdDate, boolean completed) {
+    public Todo(String title, String description, String createdDate, boolean completed, boolean favourite) {
         this.title = title;
         this.description = description;
         this.createdDate = createdDate;
+        this.favourite = favourite;
     }
 
     public int getId() {
@@ -66,4 +68,14 @@ public class Todo implements Serializable {
     public void setCompleted(boolean completed) {
         this.completed = completed;
     }
+
+    public boolean isFavourite() {
+        return favourite;
+    }
+
+    public void setFavourite(boolean favourite) {
+        this.favourite = favourite;
+    }
+
+
 }

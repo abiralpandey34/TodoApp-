@@ -119,7 +119,7 @@ public class AddTodoActivity extends AppCompatActivity {
                 else{
                     //This condition gets executed when  a new to-do item is being created.
                     if(todo.getDescription()==null){
-                        database.todoDao().insertTodo(new Todo(title, description, date, false));
+                        database.todoDao().insertTodo(new Todo(title, description, date, false, false));
                         Toast.makeText(AddTodoActivity.this, "Todo Created", Toast.LENGTH_SHORT).show();
                     }
                     //This condition gets executed when to-do item is updated/edited.
@@ -127,6 +127,7 @@ public class AddTodoActivity extends AppCompatActivity {
                         todo.setTitle(title);
                         todo.setDescription(description);
                         todo.setCompleted(false);
+                        todo.setFavourite(false);
                         todo.setCreatedDate(date);
 
                         // Connection to database
@@ -148,6 +149,7 @@ public class AddTodoActivity extends AppCompatActivity {
         todoDescription.setText(todo.getDescription());
         deleteButton.setVisibility(View.VISIBLE);
         saveButton.setText("UPDATE");
+
     }
 
     //This method gets called only when to-do item is being deleted.
