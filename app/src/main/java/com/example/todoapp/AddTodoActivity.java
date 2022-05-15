@@ -141,7 +141,6 @@ public class AddTodoActivity extends AppCompatActivity {
         });
     }
 
-
     //This method gets called only when user is trying to update a to-do item.
     public void setPreviousFoundData(Todo todo){
         todoTitle.setText(todo.getTitle());

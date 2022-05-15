@@ -63,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
         adapter = new TodoAdapter(todoList, this);
         recyclerView.setAdapter(adapter);
 
-
         database = RoomDB.getInstance(this);
         this.todoList.addAll(this.database.todoDao().getAllTodos());
 
@@ -104,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    //This method gets executed when user presses back button from main-activity screen.
+    // This method gets executed when user presses back button from main-activity screen.
     // It asks for confirmation in a box whenever user tries to exit an application.
     @Override
     public void onBackPressed() {

@@ -24,7 +24,6 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder>{
     private List<Todo> data;
     RoomDB database;
 
-
     public TodoAdapter(List<Todo> data, Context context) {
         this.data = data;
         this.context = context;
@@ -65,6 +64,12 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder>{
 
         }.init(item));
 
+        //Making text strike-through if checkbox is ticked.
+        if(item.isCompleted()){
+            holder.todoTitle.setPaintFlags(holder.todoTitle.getPaintFlags() |     Paint.STRIKE_THRU_TEXT_FLAG);
+        }
+
+
         //Setting on click Action Listener on checkbox item
         holder.completed.setOnClickListener(new View.OnClickListener(){
             private Todo currentTodo;
@@ -79,6 +84,7 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder>{
                 //This if-else block is responsible for add & removing strike-through on text when checkbox is enabled or disabled.
                 if(currentTodo.isCompleted()){
                     holder.todoTitle.setPaintFlags(holder.todoTitle.getPaintFlags() |     Paint.STRIKE_THRU_TEXT_FLAG);
+                    Toast.makeText(context, "Completed", Toast.LENGTH_SHORT).show();
                 } else{ holder.todoTitle.setPaintFlags(holder.todoTitle.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG)); }
             }
 
