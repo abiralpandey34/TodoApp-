@@ -2,28 +2,37 @@
 ## Todo Application
 
 ### Opening an App
-<img src="gif/opening_gif.gif" width="250"/>
+<p>While launching the app, loading screen animation is displayed. Currently, no items are present, so we are presented with 'Nothing To-do' Image</p>
+<img src="gif/opening_gif.gif" width="250"/><br/>
 
 ### Adding an Item
-<img src="gif/add_gif.gif" width="250"/>
+<p>Items can be added by simply clicking on Floating Add icon on bottom left.</p>
+<img src="gif/add_gif.gif" width="250"/><br/>
 
 ### Updating an Item
-<img src="gif/update_gif.gif" width="250"/>
+<p>Clicking on individual item gives an option to edit or delete it.</p>
+<img src="gif/update_gif.gif" width="250"/><br/>
 
 ### Deleting an Item
-<img src="gif/delete_gif.gif" width="250"/>
+<p>While deleting, confirmation box appears.</p>
+<img src="gif/delete_gif.gif" width="250"/><br/>
 
 ### Clicking on Checkbox
-<img src="gif/checkboxed_gif.gif" width="250"/>
+<p>We are presented with Toast message after clicking on checkbox of a to-do item.</p>
+<img src="gif/checkboxed_gif.gif" width="250"/><br/>
 
 ### Adding to Favourites
+<p>Items can be added to favourites.</p>
 <img src="gif/favourite_gif.gif" width="250">
 
 ### Reordering Items
-<img src="gif/reorder_gif.gif" width="250"/>
+<p>Items can be dragged in order to re-order it.</p>
+<img src="gif/reorder_gif.gif" width="250"/><br/>
 
 ### No-Item Image is shown when no Todo items are present
-<img src="gif/no-items.png" width="250"/>
+<p>Currently, no items are present, so we are presented with 'Nothing To-do' Image</p>
+<img src="gif/no-items.png" width="250"/><br/>
 
 ### Closing an App
-<img src="gif/closing_gif.gif" width="250"/>
+<p> While exiting, confirmation box appears </p>
+<img src="gif/closing_gif.gif" width="250"/><br/>
