@@ -16,6 +16,9 @@
 ### Clicking on Checkbox
 <img src="gif/checkboxed_gif.gif" width="250"/>
 
+### Adding to Favourites
+<img src="gif/favourite_gif.gif" width="250">
+
 ### Reordering Items
 <img src="gif/reorder_gif.gif" width="250"/>
 
